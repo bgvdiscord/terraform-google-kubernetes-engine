@@ -492,5 +492,5 @@ variable "mesh_certificates" {
   default = {
     enable_mesh_certificates = true
   }
-  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_mesh_certificates is true by default. Workload Identity is required; see [workload_identity_config](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#nested_workload_identity_config)."
+  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_mesh_certificates is true by default.   Requires Workload Identity."
 }

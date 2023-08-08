@@ -484,3 +484,13 @@ variable "timeouts" {
     error_message = "Only create, update, delete timeouts can be specified."
   }
 }
+
+variable "mesh_certificates" {
+  type = object({
+    enable_mesh_certificates = bool
+  })
+  default = {
+    enable_mesh_certificates = true
+  }
+  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_mesh_certificates is true by default.   Requires Workload Identity."
+}
