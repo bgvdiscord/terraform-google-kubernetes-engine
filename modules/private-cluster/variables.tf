@@ -640,3 +640,13 @@ variable "enable_kubernetes_alpha" {
   description = "Whether to enable Kubernetes Alpha features for this cluster. Note that when this option is enabled, the cluster cannot be upgraded and will be automatically deleted after 30 days."
   default     = false
 }
+
+variable "mesh_certificates" {
+  type = object({
+    enable_mesh_certificates = bool
+  })
+  default = {
+    enable_mesh_certificates = true
+  }
+  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_mesh_certificates is true by default.   Requires Workload Identity."
+}
