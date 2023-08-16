@@ -171,9 +171,9 @@ output "identity_namespace" {
   ]
 }
 
-output "mesh_certificates" {
+output "mesh_certificates_config" {
   description = "Mesh certificates configuration"
-  value       = local.cluster_mesh_certificates ? local.cluster_mesh_certificates : null
+  value       = local.cluster_mesh_certificates_config
   depends_on = [
     google_container_cluster.primary
   ]

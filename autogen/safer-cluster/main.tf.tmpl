@@ -186,7 +186,7 @@ module "gke" {
   identity_namespace = "${var.project_id}.svc.id.goog"
 
   // Enabling mesh certificates requires Workload Identity
-  mesh_certificates = var.mesh_certificates
+  enable_mesh_certificates = var.enable_mesh_certificates
 
   authenticator_security_group = var.authenticator_security_group
 
