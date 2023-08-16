@@ -97,7 +97,7 @@ Then perform the following commands on the root folder:
 | maintenance\_recurrence | Frequency of the recurring maintenance window in RFC5545 format. | `string` | `""` | no |
 | maintenance\_start\_time | Time window specified for daily or recurring maintenance operations in RFC3339 format | `string` | `"05:00"` | no |
 | master\_authorized\_networks | List of master authorized networks. If none are provided, disallow external access (except the cluster node IPs, which GKE automatically whitelists). | `list(object({ cidr_block = string, display_name = string }))` | `[]` | no |
-| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_mesh\_certificates is true by default.   Requires Workload Identity. | <pre>object({<br>    enable_mesh_certificates = bool<br>  })</pre> | <pre>{<br>  "enable_mesh_certificates": true<br>}</pre> | no |
+| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_certificates is true by default.   Requires Workload Identity. | <pre>object({<br>    enable_certificates = bool<br>  })</pre> | <pre>{<br>  "enable_certificates": true<br>}</pre> | no |
 | name | The name of the cluster (required) | `string` | n/a | yes |
 | network | The VPC network to host the cluster in (required) | `string` | n/a | yes |
 | network\_project\_id | The project ID of the shared VPC's host (for shared vpc support) | `string` | `""` | no |

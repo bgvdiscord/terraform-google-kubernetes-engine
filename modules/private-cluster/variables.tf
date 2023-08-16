@@ -643,10 +643,10 @@ variable "enable_kubernetes_alpha" {
 
 variable "mesh_certificates" {
   type = object({
-    enable_mesh_certificates = bool
+    enable_certificates = bool
   })
   default = {
-    enable_mesh_certificates = true
+    enable_certificates = true
   }
-  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_mesh_certificates is true by default.   Requires Workload Identity."
+  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_certificates is true by default.   Requires Workload Identity."
 }
