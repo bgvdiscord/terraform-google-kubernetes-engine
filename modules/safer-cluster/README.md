@@ -287,6 +287,7 @@ For simplicity, we suggest using `roles/container.admin` and
 | master\_authorized\_networks\_config | Networks from which access to master is permitted |
 | master\_ipv4\_cidr\_block | The IP range in CIDR notation used for the hosted master network |
 | master\_version | Current master kubernetes version |
+| mesh\_certificates | Mesh certificate configuration value |
 | min\_master\_version | Minimum master kubernetes version |
 | monitoring\_service | Monitoring service used |
 | name | Cluster name |

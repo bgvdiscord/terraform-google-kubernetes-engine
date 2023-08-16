@@ -413,6 +413,8 @@ resource "google_container_cluster" "primary" {
     }
   }
 
+  mesh_certificates = local.cluster_mesh_certificates
+
   dynamic "authenticator_groups_config" {
     for_each = local.cluster_authenticator_security_group
     content {

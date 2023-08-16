@@ -142,6 +142,14 @@ output "identity_namespace" {
   ]
 }
 
+output "mesh_certificates" {
+  description = "Mesh certificates configuration"
+  value       = local.cluster_mesh_certificates ? local.cluster_mesh_certificates : null
+  depends_on = [
+    google_container_cluster.primary
+  ]
+}
+
 output "cloudrun_enabled" {
   description = "Whether CloudRun enabled"
   value       = false
