@@ -219,6 +219,7 @@ For simplicity, we suggest using `roles/container.admin` and
 | dns\_cache | (Beta) The status of the NodeLocal DNSCache addon. | `bool` | `false` | no |
 | enable\_cost\_allocation | Enables Cost Allocation Feature and the cluster name and namespace of your GKE workloads appear in the labels field of the billing export to BigQuery | `bool` | `false` | no |
 | enable\_intranode\_visibility | Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network | `bool` | `false` | no |
+| enable\_mesh\_certificates | Controls the issuance of workload mTLS certificates. When enabled the GKE Workload Identity Certificates controller and node agent will be deployed in the cluster. Requires Workload Identity. | `bool` | `false` | no |
 | enable\_pod\_security\_policy | enabled - Enable the PodSecurityPolicy controller for this cluster. If enabled, pods must be valid under a PodSecurityPolicy to be created. | `bool` | `false` | no |
 | enable\_private\_endpoint | When true, the cluster's private endpoint is used as the cluster endpoint and access through the public endpoint is disabled. When false, either endpoint can be used. This field only applies to private clusters, when enable\_private\_nodes is true | `bool` | `true` | no |
 | enable\_shielded\_nodes | Enable Shielded Nodes features on all nodes in this cluster. | `bool` | `true` | no |
@@ -245,7 +246,6 @@ For simplicity, we suggest using `roles/container.admin` and
 | maintenance\_start\_time | Time window specified for daily maintenance operations in RFC3339 format | `string` | `"05:00"` | no |
 | master\_authorized\_networks | List of master authorized networks. If none are provided, disallow external access (except the cluster node IPs, which GKE automatically whitelists). | `list(object({ cidr_block = string, display_name = string }))` | `[]` | no |
 | master\_ipv4\_cidr\_block | The IP range in CIDR notation to use for the hosted master network | `string` | `"10.0.0.0/28"` | no |
-| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_certificates is true by default.   Requires Workload Identity. | <pre>object({<br>    enable_certificates = bool<br>  })</pre> | `null` | no |
 | monitoring\_enable\_managed\_prometheus | (Beta) Configuration for Managed Service for Prometheus. Whether or not the managed collection is enabled. | `bool` | `false` | no |
 | monitoring\_service | The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com, monitoring.googleapis.com/kubernetes (beta) and none | `string` | `"monitoring.googleapis.com/kubernetes"` | no |
 | name | The name of the cluster | `string` | n/a | yes |
@@ -279,6 +279,7 @@ For simplicity, we suggest using `roles/container.admin` and
 |------|-------------|
 | ca\_certificate | Cluster ca certificate (base64 encoded) |
 | cluster\_id | Cluster ID |
+| enable\_mesh\_certificates | Mesh certificate configuration value |
 | endpoint | Cluster endpoint |
 | horizontal\_pod\_autoscaling\_enabled | Whether horizontal pod autoscaling enabled |
 | http\_load\_balancing\_enabled | Whether http load balancing enabled |
@@ -287,7 +288,6 @@ For simplicity, we suggest using `roles/container.admin` and
 | master\_authorized\_networks\_config | Networks from which access to master is permitted |
 | master\_ipv4\_cidr\_block | The IP range in CIDR notation used for the hosted master network |
 | master\_version | Current master kubernetes version |
-| mesh\_certificates | Mesh certificate configuration value |
 | min\_master\_version | Minimum master kubernetes version |
 | monitoring\_service | Monitoring service used |
 | name | Cluster name |

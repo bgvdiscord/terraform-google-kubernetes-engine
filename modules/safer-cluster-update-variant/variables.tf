@@ -485,10 +485,8 @@ variable "timeouts" {
   }
 }
 
-variable "mesh_certificates" {
-  type = object({
-    enable_certificates = bool
-  })
-  default     = null
-  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_certificates is true by default.   Requires Workload Identity."
+variable "enable_mesh_certificates" {
+  type        = bool
+  default     = false
+  description = "Controls the issuance of workload mTLS certificates. When enabled the GKE Workload Identity Certificates controller and node agent will be deployed in the cluster. Requires Workload Identity."
 }

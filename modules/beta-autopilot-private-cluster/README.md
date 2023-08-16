@@ -108,7 +108,6 @@ Then perform the following commands on the root folder:
 | master\_authorized\_networks | List of master authorized networks. If none are provided, disallow external access (except the cluster node IPs, which GKE automatically whitelists). | `list(object({ cidr_block = string, display_name = string }))` | `[]` | no |
 | master\_global\_access\_enabled | Whether the cluster master is accessible globally (from any region) or only within the same region as the private endpoint. | `bool` | `true` | no |
 | master\_ipv4\_cidr\_block | (Beta) The IP range in CIDR notation to use for the hosted master network | `string` | `"10.0.0.0/28"` | no |
-| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_certificates is true by default. Requires Workload Identity. | <pre>object({<br>    enable_certificates = bool<br>  })</pre> | `null` | no |
 | name | The name of the cluster (required) | `string` | n/a | yes |
 | network | The VPC network to host the cluster in (required) | `string` | n/a | yes |
 | network\_project\_id | The project ID of the shared VPC's host (for shared vpc support) | `string` | `""` | no |
@@ -155,7 +154,7 @@ Then perform the following commands on the root folder:
 | master\_authorized\_networks\_config | Networks from which access to master is permitted |
 | master\_ipv4\_cidr\_block | The IP range in CIDR notation used for the hosted master network |
 | master\_version | Current master kubernetes version |
-| mesh\_certificates | Mesh certificates configuration |
+| mesh\_certificates\_config | Mesh certificates configuration |
 | min\_master\_version | Minimum master kubernetes version |
 | monitoring\_service | Monitoring service used |
 | name | Cluster name |

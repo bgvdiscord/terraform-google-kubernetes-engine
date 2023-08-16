@@ -158,7 +158,9 @@ locals {
   cluster_workload_identity_config = !local.workload_identity_enabled ? [] : var.identity_namespace == "enabled" ? [{
     workload_pool = "${var.project_id}.svc.id.goog" }] : [{ workload_pool = var.identity_namespace
   }]
-  cluster_mesh_certificates = !local.workload_identity_enabled ? null : var.mesh_certificates
+  cluster_mesh_certificates_config = !local.workload_identity_enabled ? [] : [{
+    enable_certificates = var.enable_mesh_certificates
+  }]
 
 
   cluster_maintenance_window_is_recurring = var.maintenance_recurrence != "" && var.maintenance_end_time != "" ? [1] : []

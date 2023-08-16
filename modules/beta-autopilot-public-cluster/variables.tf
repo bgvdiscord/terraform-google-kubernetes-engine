@@ -387,10 +387,3 @@ variable "timeouts" {
 }
 
 
-variable "mesh_certificates" {
-  type = object({
-    enable_certificates = bool
-  })
-  default     = null
-  description = "Controls the issuance of workload mTLS certificates. If mesh_certificates is present, enable_certificates is true by default. Requires Workload Identity."
-}
