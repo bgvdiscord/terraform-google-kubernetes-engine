@@ -108,7 +108,7 @@ Then perform the following commands on the root folder:
 | master\_authorized\_networks | List of master authorized networks. If none are provided, disallow external access (except the cluster node IPs, which GKE automatically whitelists). | `list(object({ cidr_block = string, display_name = string }))` | `[]` | no |
 | master\_global\_access\_enabled | Whether the cluster master is accessible globally (from any region) or only within the same region as the private endpoint. | `bool` | `true` | no |
 | master\_ipv4\_cidr\_block | (Beta) The IP range in CIDR notation to use for the hosted master network | `string` | `"10.0.0.0/28"` | no |
-| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_certificates is true by default.   Requires Workload Identity. | <pre>object({<br>    enable_certificates = bool<br>  })</pre> | <pre>{<br>  "enable_certificates": true<br>}</pre> | no |
+| mesh\_certificates | Controls the issuance of workload mTLS certificates. If mesh\_certificates is present, enable\_certificates is true by default. Requires Workload Identity. | <pre>object({<br>    enable_certificates = bool<br>  })</pre> | `null` | no |
 | name | The name of the cluster (required) | `string` | n/a | yes |
 | network | The VPC network to host the cluster in (required) | `string` | n/a | yes |
 | network\_project\_id | The project ID of the shared VPC's host (for shared vpc support) | `string` | `""` | no |
