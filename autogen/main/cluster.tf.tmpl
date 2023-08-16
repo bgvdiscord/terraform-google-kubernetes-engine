@@ -507,7 +507,7 @@ resource "google_container_cluster" "primary" {
   {% endif %}
 
   {% if autopilot_cluster != true %}
-  dynamic "mesh_certificates_config" {
+  dynamic "mesh_certificates" {
     for_each = local.cluster_mesh_certificates_config
 
     content {
