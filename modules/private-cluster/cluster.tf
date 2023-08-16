@@ -363,7 +363,7 @@ resource "google_container_cluster" "primary" {
     }
   }
 
-  dynamic "mesh_certificates_config" {
+  dynamic "mesh_certificates" {
     for_each = local.cluster_mesh_certificates_config
 
     content {

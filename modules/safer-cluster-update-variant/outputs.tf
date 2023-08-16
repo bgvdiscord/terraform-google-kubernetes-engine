@@ -125,5 +125,5 @@ output "peering_name" {
 
 output "enable_mesh_certificates" {
   description = "Mesh certificate configuration value"
-  value       = module.gke.enable_mesh_certificates
+  value       = var.enable_mesh_certificates
 }
