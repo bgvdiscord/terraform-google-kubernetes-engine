@@ -367,7 +367,7 @@ resource "google_container_cluster" "primary" {
     for_each = local.cluster_mesh_certificates_config
 
     content {
-      enable_certificates = mesh_certificates_config.value.enable_certificates
+      enable_certificates = mesh_certificates.value.enable_certificates
     }
   }
 
